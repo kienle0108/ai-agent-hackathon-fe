@@ -1,11 +1,11 @@
 import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
 import nextPlugin from "eslint-config-next";
 import prettierConfig from "eslint-config-prettier";
 import prettierPlugin from "eslint-plugin-prettier";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
 import reactHooks from "eslint-plugin-react-hooks";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   // Base recommended configs
@@ -20,7 +20,7 @@ export default tseslint.config(
   // User's custom configurations
   {
     plugins: {
-      "prettier": prettierPlugin,
+      prettier: prettierPlugin,
       "simple-import-sort": simpleImportSort,
       "react-hooks": reactHooks,
     },
@@ -28,8 +28,8 @@ export default tseslint.config(
       globals: {
         ...globals.browser,
         ...globals.node,
-        "React": "readonly" // Add React to globals, good practice for modern setups
-      }
+        React: "readonly", // Add React to globals, good practice for modern setups
+      },
     },
     rules: {
       // Prettier rule
@@ -48,7 +48,7 @@ export default tseslint.config(
 
       // React hooks rule
       "react-hooks/exhaustive-deps": "warn",
-      
+
       // Other custom rules from the user's config
       "no-unused-vars": "warn", // Note: @typescript-eslint/no-unused-vars is often preferred in TS projects
       "prefer-const": "off",
